@@ -1,14 +1,85 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import StructuredData from '@/components/StructuredData';
+import { Article } from '@/types/schema';
 
-export const metadata: Metadata = {
-  title: 'PNG vs JPG: Which Image Format Should You Use? | PixNivo Blog',
+export function generateMetadata(): Metadata {
+  const baseUrl = 'https://pixnivo.com';
+  const url = `${baseUrl}/blog/png-vs-jpg`;
+  
+  return {
+    title: 'PNG vs JPG: Which Image Format Should You Use?',
+    description: 'Learn the key differences between PNG and JPG image formats, when to use each, and how to convert between them. Complete guide with examples.',
+    keywords: 'png vs jpg, png vs jpeg, image format comparison, when to use png, when to use jpg, image format guide',
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title: 'PNG vs JPG: Which Image Format Should You Use? | PixNivo Blog',
+      description: 'Learn the key differences between PNG and JPG image formats, when to use each, and how to convert between them.',
+      url: url,
+      siteName: 'PixNivo',
+      images: [
+        {
+          url: `${baseUrl}/pixnivo_logo.png`,
+          width: 1200,
+          height: 630,
+          alt: 'PNG vs JPG Guide',
+        },
+      ],
+      locale: 'en_US',
+      type: 'article',
+      publishedTime: '2024-01-15T00:00:00Z',
+      modifiedTime: '2024-01-15T00:00:00Z',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'PNG vs JPG: Which Image Format Should You Use?',
+      description: 'Learn the key differences between PNG and JPG image formats, when to use each, and how to convert between them.',
+      images: [`${baseUrl}/pixnivo_logo.png`],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+  };
+}
+
+// Article structured data for SEO
+const articleSchema: Article = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'PNG vs JPG: Which Image Format Should You Use?',
   description: 'Learn the key differences between PNG and JPG image formats, when to use each, and how to convert between them.',
+  image: 'https://pixnivo.com/pixnivo_logo.png',
+  datePublished: '2024-01-15T00:00:00Z',
+  dateModified: '2024-01-15T00:00:00Z',
+  author: {
+    '@type': 'Person',
+    name: 'PixNivo Team',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'PixNivo',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://pixnivo.com/pixnivo_logo.png',
+    },
+  },
 };
 
 export default function PngVsJpgPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <>
+      <StructuredData data={articleSchema} />
+      <div className="min-h-screen bg-gray-50">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
         <Link 
           href="/blog"
@@ -135,6 +206,7 @@ export default function PngVsJpgPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

@@ -1,14 +1,85 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import StructuredData from '@/components/StructuredData';
+import { Article } from '@/types/schema';
 
-export const metadata: Metadata = {
-  title: 'How to Compress Images Without Losing Quality | PixNivo Blog',
+export function generateMetadata(): Metadata {
+  const baseUrl = 'https://pixnivo.com';
+  const url = `${baseUrl}/blog/how-to-compress-images`;
+  
+  return {
+    title: 'How to Compress Images Without Losing Quality',
+    description: 'Learn how to compress images effectively while maintaining visual quality. Tips and techniques for image optimization. Complete guide with best practices.',
+    keywords: 'compress images, image compression, reduce image size, image optimization, compress photos, image quality',
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title: 'How to Compress Images Without Losing Quality | PixNivo Blog',
+      description: 'Learn how to compress images effectively while maintaining visual quality. Tips and techniques for image optimization.',
+      url: url,
+      siteName: 'PixNivo',
+      images: [
+        {
+          url: `${baseUrl}/pixnivo_logo.png`,
+          width: 1200,
+          height: 630,
+          alt: 'How to Compress Images Guide',
+        },
+      ],
+      locale: 'en_US',
+      type: 'article',
+      publishedTime: '2024-01-10T00:00:00Z',
+      modifiedTime: '2024-01-10T00:00:00Z',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'How to Compress Images Without Losing Quality',
+      description: 'Learn how to compress images effectively while maintaining visual quality. Tips and techniques for image optimization.',
+      images: [`${baseUrl}/pixnivo_logo.png`],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+  };
+}
+
+// Article structured data for SEO
+const articleSchema: Article = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'How to Compress Images Without Losing Quality',
   description: 'Learn how to compress images effectively while maintaining visual quality. Tips and techniques for image optimization.',
+  image: 'https://pixnivo.com/pixnivo_logo.png',
+  datePublished: '2024-01-10T00:00:00Z',
+  dateModified: '2024-01-10T00:00:00Z',
+  author: {
+    '@type': 'Person',
+    name: 'PixNivo Team',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'PixNivo',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://pixnivo.com/pixnivo_logo.png',
+    },
+  },
 };
 
 export default function HowToCompressImagesPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <>
+      <StructuredData data={articleSchema} />
+      <div className="min-h-screen bg-gray-50">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
         <Link 
           href="/blog"
@@ -146,6 +217,7 @@ export default function HowToCompressImagesPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

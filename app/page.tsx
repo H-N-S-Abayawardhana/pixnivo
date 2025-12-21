@@ -1,12 +1,54 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import StructuredData from '@/components/StructuredData';
+import { WebApplication } from '@/types/schema';
 
-export const metadata: Metadata = {
-  title: 'PixNivo - Free Online Image Converter & Tools | No Login Required',
-  description: 'Free, fast, and secure image conversion tools. Convert PNG to JPG, JPG to PNG, compress images, and resize photos. All processing happens in your browser - your files never leave your device.',
-  keywords: 'image converter, png to jpg, jpg to png, image compressor, image resizer, free image tools, online image converter',
-};
+export function generateMetadata(): Metadata {
+  const baseUrl = 'https://pixnivo.com'; // Update with your actual domain
+  
+  return {
+    title: 'PixNivo - Free Online Image Converter & Tools',
+    description: 'Convert PNG to JPG, JPG to PNG, compress and resize images online for free. No login, no watermarks. All processing happens in your browser.',
+    keywords: 'image converter, png to jpg, jpg to png, image compressor, image resizer, free image tools, online image converter, convert images online',
+    alternates: {
+      canonical: baseUrl,
+    },
+    openGraph: {
+      title: 'PixNivo - Free Online Image Converter & Tools',
+      description: 'Convert, compress, and resize images instantly. No sign-up required, no watermarks, and your files never leave your device.',
+      url: baseUrl,
+      siteName: 'PixNivo',
+      images: [
+        {
+          url: `${baseUrl}/pixnivo_logo.png`,
+          width: 1200,
+          height: 630,
+          alt: 'PixNivo - Free Image Tools',
+        },
+      ],
+      locale: 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'PixNivo - Free Online Image Converter & Tools',
+      description: 'Convert, compress, and resize images instantly. No sign-up required, no watermarks.',
+      images: [`${baseUrl}/pixnivo_logo.png`],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+  };
+}
 
 const tools = [
   {
@@ -51,9 +93,36 @@ const tools = [
   },
 ];
 
+// Structured data for homepage
+const webAppSchema: WebApplication = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'PixNivo',
+  description: 'Free online image conversion and optimization tools. Convert PNG to JPG, JPG to PNG, compress images, and resize photos.',
+  url: 'https://pixnivo.com',
+  applicationCategory: 'UtilityApplication',
+  operatingSystem: 'Web Browser',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+  featureList: [
+    'PNG to JPG conversion',
+    'JPG to PNG conversion',
+    'Image compression',
+    'Image resizing',
+    'Browser-based processing',
+    'No file uploads',
+    'Privacy-first',
+  ],
+};
+
 export default function Home() {
   return (
-    <div className="bg-white">
+    <>
+      <StructuredData data={webAppSchema} />
+      <div className="bg-white">
       {/* Hero Section */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div className="text-center">
@@ -236,5 +305,6 @@ export default function Home() {
         </div>
       </section>
     </div>
+    </>
   );
 }
