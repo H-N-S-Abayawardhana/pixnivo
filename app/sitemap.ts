@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://pixnivo.com'; // Update with your actual domain
+  const baseUrl = 'https://pixnivo.vercel.app';
 
   // Static pages
   const staticPages = [
