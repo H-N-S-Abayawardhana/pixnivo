@@ -1,13 +1,23 @@
 import type { Metadata } from 'next';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export function generateMetadata(): Metadata {
-  const baseUrl = 'https://pixnivo.com';
-  const url = `${baseUrl}/jpg-to-png`;
+  const url = `${SITE_CONFIG.url}/jpg-to-png`;
   
   return {
     title: 'Convert JPG to PNG Online Free – No Login Required',
     description: 'Convert JPG to PNG instantly for free. Support for transparency. No sign-up, no watermarks. All processing happens in your browser.',
-    keywords: 'jpg to png, convert jpg to png, jpeg to png converter, free jpg to png, online jpg converter, jpg to png converter free',
+    keywords: [
+      'jpg to png',
+      'convert jpg to png',
+      'jpeg to png converter',
+      'free jpg to png',
+      'online jpg converter',
+      'jpg to png converter free',
+      'jpeg to png',
+      'convert jpeg to png',
+      'jpg converter',
+    ],
     alternates: {
       canonical: url,
     },
@@ -15,23 +25,24 @@ export function generateMetadata(): Metadata {
       title: 'Convert JPG to PNG Online Free – No Login Required | PixNivo',
       description: 'Convert JPG images to PNG format instantly and for free. Support for transparency. No sign-up required, no watermarks.',
       url: url,
-      siteName: 'PixNivo',
+      siteName: SITE_CONFIG.name,
       images: [
         {
-          url: `${baseUrl}/pixnivo_logo.png`,
+          url: `${SITE_CONFIG.url}${SITE_CONFIG.defaultImage}`,
           width: 1200,
           height: 630,
           alt: 'PixNivo JPG to PNG Converter',
         },
       ],
-      locale: 'en_US',
+      locale: SITE_CONFIG.locale,
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
       title: 'Convert JPG to PNG Online Free – No Login Required',
       description: 'Convert JPG images to PNG format instantly and for free. Support for transparency.',
-      images: [`${baseUrl}/pixnivo_logo.png`],
+      images: [`${SITE_CONFIG.url}${SITE_CONFIG.defaultImage}`],
+      creator: SITE_CONFIG.twitterHandle,
     },
     robots: {
       index: true,

@@ -1,8 +1,45 @@
 import type { Metadata } from 'next';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Terms of Service – PixNivo',
   description: 'PixNivo terms of service. Read our terms and conditions for using our free image tools.',
+  keywords: [
+    'pixnivo terms of service',
+    'image converter terms',
+    'terms and conditions',
+    'image tools terms',
+  ],
+  alternates: {
+    canonical: `${SITE_CONFIG.url}/terms`,
+  },
+  openGraph: {
+    title: 'Terms of Service – PixNivo',
+    description: 'PixNivo terms of service. Read our terms and conditions for using our free image tools.',
+    url: `${SITE_CONFIG.url}/terms`,
+    siteName: SITE_CONFIG.name,
+    images: [
+      {
+        url: `${SITE_CONFIG.url}${SITE_CONFIG.defaultImage}`,
+        width: 1200,
+        height: 630,
+        alt: 'PixNivo Terms of Service',
+      },
+    ],
+    locale: SITE_CONFIG.locale,
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Terms of Service – PixNivo',
+    description: 'PixNivo terms of service. Read our terms and conditions for using our free image tools.',
+    images: [`${SITE_CONFIG.url}${SITE_CONFIG.defaultImage}`],
+    creator: SITE_CONFIG.twitterHandle,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function TermsPage() {
@@ -32,7 +69,7 @@ export default function TermsPage() {
 
           <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">Service Availability</h2>
           <p>
-            PixNivo is provided "as is" without warranties of any kind. We strive to keep the service 
+            PixNivo is provided &quot;as is&quot; without warranties of any kind. We strive to keep the service 
             available, but we do not guarantee uninterrupted access.
           </p>
 

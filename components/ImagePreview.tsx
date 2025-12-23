@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { formatFileSize } from '@/lib/imageUtils';
 
 interface ImagePreviewProps {
@@ -16,31 +16,27 @@ export default function ImagePreview({
   originalSize,
   processedSize,
 }: ImagePreviewProps) {
-  const [previewUrl, setPreviewUrl] = useState<string>('');
-  const [processedUrl, setProcessedUrl] = useState<string>('');
+  // Use useMemo to create URLs instead of useState in useEffect
+  const previewUrl = useMemo(() => {
+    return URL.createObjectURL(originalFile);
+  }, [originalFile]);
+
+  const processedUrl = useMemo(() => {
+    if (processedBlob) {
+      return URL.createObjectURL(processedBlob);
+    }
+    return null;
+  }, [processedBlob]);
 
   useEffect(() => {
-    // Create preview URL for original
-    const url = URL.createObjectURL(originalFile);
-    setPreviewUrl(url);
-
-    // Create preview URL for processed
-    let processedUrlValue: string | null = null;
-    if (processedBlob) {
-      processedUrlValue = URL.createObjectURL(processedBlob);
-      setProcessedUrl(processedUrlValue);
-    } else {
-      setProcessedUrl('');
-    }
-
     // Cleanup
     return () => {
-      URL.revokeObjectURL(url);
-      if (processedUrlValue) {
-        URL.revokeObjectURL(processedUrlValue);
+      URL.revokeObjectURL(previewUrl);
+      if (processedUrl) {
+        URL.revokeObjectURL(processedUrl);
       }
     };
-  }, [originalFile, processedBlob]);
+  }, [previewUrl, processedUrl]);
 
   const compressionRatio = originalSize && processedSize
     ? ((1 - processedSize / originalSize) * 100).toFixed(1)
@@ -68,7 +64,7 @@ export default function ImagePreview({
       )}
 
       {/* Processed Image */}
-      {processedBlob && processedUrl && (
+      {processedBlob && processedUrl !== null && (
         <div>
           <h3 className="text-lg font-semibold text-gray-900 mb-3">
             Processed Image

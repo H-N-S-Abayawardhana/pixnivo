@@ -1,8 +1,42 @@
 import type { Metadata } from 'next';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'About PixNivo – Free Online Image Tools',
   description: 'Learn about PixNivo, a free online image conversion and optimization platform. All processing happens in your browser for complete privacy.',
+  keywords: [
+    'about pixnivo',
+    'image tools',
+    'free image converter',
+    'privacy-first image tools',
+    'browser-based image processing',
+  ],
+  alternates: {
+    canonical: `${SITE_CONFIG.url}/about`,
+  },
+  openGraph: {
+    title: 'About PixNivo – Free Online Image Tools',
+    description: 'Learn about PixNivo, a free online image conversion and optimization platform. All processing happens in your browser for complete privacy.',
+    url: `${SITE_CONFIG.url}/about`,
+    siteName: SITE_CONFIG.name,
+    images: [
+      {
+        url: `${SITE_CONFIG.url}${SITE_CONFIG.defaultImage}`,
+        width: 1200,
+        height: 630,
+        alt: 'About PixNivo',
+      },
+    ],
+    locale: SITE_CONFIG.locale,
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About PixNivo – Free Online Image Tools',
+    description: 'Learn about PixNivo, a free online image conversion and optimization platform.',
+    images: [`${SITE_CONFIG.url}${SITE_CONFIG.defaultImage}`],
+    creator: SITE_CONFIG.twitterHandle,
+  },
 };
 
 export default function AboutPage() {
@@ -20,7 +54,7 @@ export default function AboutPage() {
           <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">Our Mission</h2>
           <p>
             Our mission is to provide high-quality image tools that anyone can use, regardless of 
-            technical expertise. We're committed to keeping our tools free, accessible, and 
+            technical expertise. We&apos;re committed to keeping our tools free, accessible, and 
             completely private.
           </p>
 
@@ -49,13 +83,13 @@ export default function AboutPage() {
 
           <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">Why PixNivo?</h2>
           <p>
-            We've designed PixNivo to be the simplest, most user-friendly image tool platform. 
+            We&apos;ve designed PixNivo to be the simplest, most user-friendly image tool platform. 
             No sign-ups, no watermarks, no complicated settings - just upload, process, and download.
           </p>
 
           <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">Contact Us</h2>
           <p>
-            Have questions or feedback? We'd love to hear from you. Visit our{' '}
+            Have questions or feedback? We&apos;d love to hear from you. Visit our{' '}
             <a href="/contact" className="text-blue-600 hover:text-blue-700">contact page</a> to get in touch.
           </p>
         </div>

@@ -208,7 +208,7 @@ export default function ImageCompressorPage() {
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Compress Images Online - Free and Instant</h2>
         <p className="text-gray-700 mb-4">
           Need to reduce image file sizes? Our free online image compressor makes it easy to shrink image files 
-          without noticeable quality loss. Whether you're optimizing images for your website, preparing photos for 
+          without noticeable quality loss. Whether you&apos;re optimizing images for your website, preparing photos for 
           email, or saving storage space, image compression can help you achieve smaller file sizes while maintaining 
           good visual quality.
         </p>
@@ -226,9 +226,9 @@ export default function ImageCompressorPage() {
         </p>
         <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
           <li>You need faster website loading times</li>
-          <li>You're sending images via email and want smaller attachments</li>
+          <li>You&apos;re sending images via email and want smaller attachments</li>
           <li>You want to save storage space on your device or server</li>
-          <li>You're optimizing images for mobile users with limited data</li>
+          <li>You&apos;re optimizing images for mobile users with limited data</li>
           <li>You need to meet file size requirements for uploads</li>
         </ul>
 
@@ -311,7 +311,7 @@ export default function ImageCompressorPage() {
           <div>
             <h3 className="font-semibold text-gray-900 mb-2">What file sizes can I compress to?</h3>
             <p className="text-gray-600">
-              You can choose from 0.5MB, 1MB, 2MB, or 5MB target sizes. The actual result may vary slightly, but we'll get as close as possible while maintaining quality.
+              You can choose from 0.5MB, 1MB, 2MB, or 5MB target sizes. The actual result may vary slightly, but we&apos;ll get as close as possible while maintaining quality.
             </p>
           </div>
           <div>

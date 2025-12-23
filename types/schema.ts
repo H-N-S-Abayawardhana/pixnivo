@@ -49,5 +49,51 @@ export interface WebApplication {
     priceCurrency: 'USD';
   };
   featureList: string[];
+  aggregateRating?: {
+    '@type': 'AggregateRating';
+    ratingValue: string;
+    ratingCount: string;
+  };
+}
+
+export interface HowTo {
+  '@context': 'https://schema.org';
+  '@type': 'HowTo';
+  name: string;
+  description: string;
+  image?: string;
+  step: {
+    '@type': 'HowToStep';
+    name: string;
+    text: string;
+    image?: string;
+  }[];
+}
+
+export interface SoftwareApplication {
+  '@context': 'https://schema.org';
+  '@type': 'SoftwareApplication';
+  name: string;
+  description: string;
+  url: string;
+  applicationCategory: 'UtilityApplication';
+  operatingSystem: 'Web Browser';
+  offers: {
+    '@type': 'Offer';
+    price: '0';
+    priceCurrency: 'USD';
+  };
+  featureList: string[];
+}
+
+export interface Organization {
+  '@context': 'https://schema.org';
+  '@type': 'Organization';
+  name: string;
+  url: string;
+  logo: string;
+  description: string;
+  email: string;
+  sameAs?: string[];
 }
 

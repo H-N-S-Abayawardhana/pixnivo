@@ -1,8 +1,45 @@
 import type { Metadata } from 'next';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy – PixNivo',
-  description: 'PixNivo privacy policy. Learn how we protect your privacy and handle your data.',
+  description: 'PixNivo privacy policy. Learn how we protect your privacy and handle your data. All image processing happens in your browser - no uploads, no data collection.',
+  keywords: [
+    'pixnivo privacy policy',
+    'image converter privacy',
+    'privacy-first image tools',
+    'browser-based privacy',
+  ],
+  alternates: {
+    canonical: `${SITE_CONFIG.url}/privacy-policy`,
+  },
+  openGraph: {
+    title: 'Privacy Policy – PixNivo',
+    description: 'PixNivo privacy policy. Learn how we protect your privacy and handle your data.',
+    url: `${SITE_CONFIG.url}/privacy-policy`,
+    siteName: SITE_CONFIG.name,
+    images: [
+      {
+        url: `${SITE_CONFIG.url}${SITE_CONFIG.defaultImage}`,
+        width: 1200,
+        height: 630,
+        alt: 'PixNivo Privacy Policy',
+      },
+    ],
+    locale: SITE_CONFIG.locale,
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Privacy Policy – PixNivo',
+    description: 'PixNivo privacy policy. Learn how we protect your privacy and handle your data.',
+    images: [`${SITE_CONFIG.url}${SITE_CONFIG.defaultImage}`],
+    creator: SITE_CONFIG.twitterHandle,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function PrivacyPolicyPage() {

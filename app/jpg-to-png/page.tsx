@@ -191,7 +191,7 @@ export default function JpgToPngPage() {
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Convert JPG to PNG Online - Free and Instant</h2>
         <p className="text-gray-700 mb-4">
           Need to convert JPG images to PNG format? Our free online JPG to PNG converter makes it simple. 
-          Whether you're creating graphics with transparency, preparing logos for web use, or need lossless 
+          Whether you&apos;re creating graphics with transparency, preparing logos for web use, or need lossless 
           image quality, converting JPG to PNG can help you achieve your goals.
         </p>
         
@@ -210,9 +210,9 @@ export default function JpgToPngPage() {
         <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
           <li>You need transparency support for logos or graphics</li>
           <li>You want lossless image quality without compression artifacts</li>
-          <li>You're working with graphics, icons, or images with sharp edges</li>
+          <li>You&apos;re working with graphics, icons, or images with sharp edges</li>
           <li>You need to preserve image quality for professional use</li>
-          <li>You're preparing images for print or high-quality displays</li>
+          <li>You&apos;re preparing images for print or high-quality displays</li>
         </ul>
 
         <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">Benefits of Converting JPG to PNG</h3>
@@ -224,7 +224,7 @@ export default function JpgToPngPage() {
           <li><strong>Lossless quality:</strong> PNG is a lossless format, preserving all image data without compression artifacts</li>
           <li><strong>Better for graphics:</strong> PNG is optimized for images with sharp edges, text, and limited colors</li>
           <li><strong>Professional quality:</strong> Ideal for print materials and high-resolution displays</li>
-          <li><strong>No quality degradation:</strong> Unlike JPG, PNG doesn't lose quality with each save</li>
+          <li><strong>No quality degradation:</strong> Unlike JPG, PNG doesn&apos;t lose quality with each save</li>
         </ul>
 
         <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">How Our JPG to PNG Converter Works</h3>
@@ -300,7 +300,7 @@ export default function JpgToPngPage() {
           <div>
             <h3 className="font-semibold text-gray-900 mb-2">Can I add transparency to my JPG image?</h3>
             <p className="text-gray-600">
-              Converting JPG to PNG doesn't automatically add transparency. JPG images don't have transparency information, so the converted PNG will have a solid background. If you need transparency, you'll need to edit the image separately.
+              Converting JPG to PNG doesn&apos;t automatically add transparency. JPG images don&apos;t have transparency information, so the converted PNG will have a solid background. If you need transparency, you&apos;ll need to edit the image separately.
             </p>
           </div>
           <div>
