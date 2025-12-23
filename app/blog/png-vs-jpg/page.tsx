@@ -100,7 +100,7 @@ export default function PngVsJpgPage() {
           <p>
             When working with images, choosing the right format can make a significant difference 
             in file size, quality, and compatibility. Two of the most common image formats are PNG 
-            and JPG (also known as JPEG). In this guide, we'll explore the differences between these 
+            and JPG (also known as JPEG). In this guide, we&apos;ll explore the differences between these 
             formats and help you decide which one to use.
           </p>
 
@@ -173,11 +173,11 @@ export default function PngVsJpgPage() {
 
           <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">Converting Between Formats</h2>
           <p>
-            Sometimes you need to convert between PNG and JPG formats. Here's when and how:
+            Sometimes you need to convert between PNG and JPG formats. Here&apos;s when and how:
           </p>
           <ul className="list-disc pl-6 space-y-2">
             <li>
-              <strong>PNG to JPG:</strong> Use when you want to reduce file size and don't need 
+              <strong>PNG to JPG:</strong> Use when you want to reduce file size and don&apos;t need 
               transparency. Try our{' '}
               <a href="/png-to-jpg" className="text-blue-600 hover:text-blue-700">PNG to JPG converter</a>.
             </li>

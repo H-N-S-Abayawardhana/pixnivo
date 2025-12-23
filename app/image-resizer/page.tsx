@@ -261,7 +261,7 @@ export default function ImageResizerPage() {
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Resize Images Online - Free and Instant</h2>
         <p className="text-gray-700 mb-4">
           Need to resize images? Our free online image resizer makes it easy to change image dimensions 
-          while maintaining quality. Whether you're preparing photos for social media, creating thumbnails, 
+          while maintaining quality. Whether you&apos;re preparing photos for social media, creating thumbnails, 
           or fitting images to specific requirements, our resizer can help you achieve the perfect size.
         </p>
         
@@ -278,10 +278,10 @@ export default function ImageResizerPage() {
         </p>
         <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
           <li>You need specific dimensions for social media posts</li>
-          <li>You're creating thumbnails or preview images</li>
+          <li>You&apos;re creating thumbnails or preview images</li>
           <li>You want to optimize images for faster loading</li>
           <li>You need to fit images to specific layout requirements</li>
-          <li>You're preparing images for print or display</li>
+          <li>You&apos;re preparing images for print or display</li>
         </ul>
 
         <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">Benefits of Image Resizing</h3>

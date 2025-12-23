@@ -100,7 +100,7 @@ export default function HowToCompressImagesPage() {
           <p>
             Image compression is essential for web optimization, faster loading times, and saving 
             storage space. However, many people worry that compressing images will result in 
-            noticeable quality loss. In this guide, we'll show you how to compress images effectively 
+            noticeable quality loss. In this guide, we&apos;ll show you how to compress images effectively 
             while maintaining good visual quality.
           </p>
 
@@ -144,7 +144,7 @@ export default function HowToCompressImagesPage() {
 
           <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">2. Resize Before Compressing</h3>
           <p>
-            If your image is larger than needed, resize it first. There's no point in compressing 
+            If your image is larger than needed, resize it first. There&apos;s no point in compressing 
             a 4000x3000 image if you only need 1920x1080. Use our{' '}
             <a href="/image-resizer" className="text-blue-600 hover:text-blue-700">Image Resizer</a> tool.
           </p>
@@ -170,7 +170,7 @@ export default function HowToCompressImagesPage() {
             <li><strong>Email attachments:</strong> Under 1 MB</li>
           </ul>
 
-          <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">Using PixNivo's Image Compressor</h2>
+          <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">Using PixNivo&apos;s Image Compressor</h2>
           <p>
             Our{' '}
             <a href="/image-compressor" className="text-blue-600 hover:text-blue-700">Image Compressor</a> tool 

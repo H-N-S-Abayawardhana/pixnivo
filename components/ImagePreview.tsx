@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { formatFileSize } from '@/lib/imageUtils';
 
 interface ImagePreviewProps {
