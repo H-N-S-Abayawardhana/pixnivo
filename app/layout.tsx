@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,8 @@ export default function RootLayout({
         <Footer />
         {/* Vercel Analytics - Tracks page views and visitor analytics */}
         <Analytics />
+        {/* Vercel Speed Insights - Monitors Core Web Vitals and performance metrics */}
+        <SpeedInsights />
       </body>
     </html>
   );
