@@ -8,8 +8,9 @@ import ImagePreview from '@/components/ImagePreview';
 import PrimaryButton from '@/components/PrimaryButton';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import StructuredData from '@/components/StructuredData';
-import { convertImageFormat, validateImageFile, formatFileSize } from '@/lib/imageUtils';
-import { FAQPage } from '@/types/schema';
+import { convertImageFormat, validateImageFile } from '@/lib/imageUtils';
+import { FAQPage, HowTo, SoftwareApplication } from '@/types/schema';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export default function PngToJpgPage() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -112,9 +113,60 @@ export default function PngToJpgPage() {
     ],
   };
 
+  // HowTo structured data
+  const howToSchema: HowTo = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'How to Convert PNG to JPG Online',
+    description: 'Step-by-step guide to convert PNG images to JPG format using PixNivo\'s free online converter.',
+    image: `${SITE_CONFIG.url}${SITE_CONFIG.defaultImage}`,
+    step: [
+      {
+        '@type': 'HowToStep',
+        name: 'Upload PNG Image',
+        text: 'Click or drag and drop your PNG image file into the upload area. Supported file size up to 10MB.',
+        image: `${SITE_CONFIG.url}${SITE_CONFIG.defaultImage}`,
+      },
+      {
+        '@type': 'HowToStep',
+        name: 'Convert to JPG',
+        text: 'Click the "Convert to JPG" button. The conversion happens instantly in your browser.',
+      },
+      {
+        '@type': 'HowToStep',
+        name: 'Download Result',
+        text: 'Preview the converted JPG image and click "Download JPG Image" to save it to your device.',
+      },
+    ],
+  };
+
+  // SoftwareApplication structured data
+  const softwareSchema: SoftwareApplication = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'PixNivo PNG to JPG Converter',
+    description: 'Free online tool to convert PNG images to JPG format. All processing happens in your browser for complete privacy.',
+    url: `${SITE_CONFIG.url}/png-to-jpg`,
+    applicationCategory: 'UtilityApplication',
+    operatingSystem: 'Web Browser',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    featureList: [
+      'PNG to JPG conversion',
+      'Browser-based processing',
+      'No file uploads',
+      'Privacy-first',
+      'High-quality conversion (92% quality)',
+      'Instant processing',
+    ],
+  };
+
   return (
     <>
-      <StructuredData data={faqSchema} />
+      <StructuredData data={[faqSchema, howToSchema, softwareSchema]} />
       <ToolLayout
         title="PNG to JPG Converter"
         description="Convert PNG images to JPG format instantly. Reduce file sizes and improve compatibility."
@@ -191,7 +243,7 @@ export default function PngToJpgPage() {
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Convert PNG to JPG Online - Free and Instant</h2>
         <p className="text-gray-700 mb-4">
           Need to convert PNG images to JPG format? Our free online PNG to JPG converter makes it easy. 
-          Whether you're optimizing images for your website, reducing file sizes for email, or preparing 
+          Whether you&apos;re optimizing images for your website, reducing file sizes for email, or preparing 
           photos for social media, converting PNG to JPG can help you achieve smaller file sizes while 
           maintaining good visual quality.
         </p>
@@ -210,9 +262,9 @@ export default function PngToJpgPage() {
         </p>
         <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
           <li>You need smaller file sizes for faster website loading</li>
-          <li>You're sending images via email and want to reduce attachment size</li>
-          <li>You're working with photographs (JPG is optimized for photos)</li>
-          <li>You don't need transparency support</li>
+          <li>You&apos;re sending images via email and want to reduce attachment size</li>
+          <li>You&apos;re working with photographs (JPG is optimized for photos)</li>
+          <li>You don&apos;t need transparency support</li>
           <li>You want better compatibility across different devices and platforms</li>
         </ul>
 
@@ -295,7 +347,7 @@ export default function PngToJpgPage() {
           <div>
             <h3 className="font-semibold text-gray-900 mb-2">Can I convert PNG images with transparency?</h3>
             <p className="text-gray-600">
-              Yes, you can convert PNG images with transparency to JPG. However, JPG doesn't support transparency, so transparent areas will be converted to white. If you need to preserve transparency, consider using our JPG to PNG converter in reverse, or keep your image as PNG.
+              Yes, you can convert PNG images with transparency to JPG. However, JPG doesn&apos;t support transparency, so transparent areas will be converted to white. If you need to preserve transparency, consider using our JPG to PNG converter in reverse, or keep your image as PNG.
             </p>
           </div>
           <div>

@@ -1,9 +1,44 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Blog – PixNivo Image Tools',
-  description: 'Learn about image formats, optimization tips, and best practices for working with images.',
+  description: 'Learn about image formats, optimization tips, and best practices for working with images. Guides on PNG vs JPG, image compression, and more.',
+  keywords: [
+    'image format guide',
+    'image optimization tips',
+    'png vs jpg',
+    'image compression guide',
+    'image editing blog',
+    'image tools blog',
+  ],
+  alternates: {
+    canonical: `${SITE_CONFIG.url}/blog`,
+  },
+  openGraph: {
+    title: 'Blog – PixNivo Image Tools',
+    description: 'Learn about image formats, optimization tips, and best practices for working with images.',
+    url: `${SITE_CONFIG.url}/blog`,
+    siteName: SITE_CONFIG.name,
+    images: [
+      {
+        url: `${SITE_CONFIG.url}${SITE_CONFIG.defaultImage}`,
+        width: 1200,
+        height: 630,
+        alt: 'PixNivo Blog',
+      },
+    ],
+    locale: SITE_CONFIG.locale,
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog – PixNivo Image Tools',
+    description: 'Learn about image formats, optimization tips, and best practices for working with images.',
+    images: [`${SITE_CONFIG.url}${SITE_CONFIG.defaultImage}`],
+    creator: SITE_CONFIG.twitterHandle,
+  },
 };
 
 const blogPosts = [

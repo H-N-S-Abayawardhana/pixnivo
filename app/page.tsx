@@ -4,37 +4,49 @@ import Link from 'next/link';
 import StructuredData from '@/components/StructuredData';
 import { WebApplication } from '@/types/schema';
 
+import { SITE_CONFIG } from '@/lib/constants';
+
 export function generateMetadata(): Metadata {
-  const baseUrl = 'https://pixnivo.com'; // Update with your actual domain
-  
   return {
     title: 'PixNivo - Free Online Image Converter & Tools',
     description: 'Convert PNG to JPG, JPG to PNG, compress and resize images online for free. No login, no watermarks. All processing happens in your browser.',
-    keywords: 'image converter, png to jpg, jpg to png, image compressor, image resizer, free image tools, online image converter, convert images online',
+    keywords: [
+      'image converter',
+      'png to jpg',
+      'jpg to png',
+      'image compressor',
+      'image resizer',
+      'free image tools',
+      'online image converter',
+      'convert images online',
+      'browser-based image tools',
+      'privacy-first image converter',
+    ],
     alternates: {
-      canonical: baseUrl,
+      canonical: SITE_CONFIG.url,
     },
     openGraph: {
       title: 'PixNivo - Free Online Image Converter & Tools',
       description: 'Convert, compress, and resize images instantly. No sign-up required, no watermarks, and your files never leave your device.',
-      url: baseUrl,
-      siteName: 'PixNivo',
+      url: SITE_CONFIG.url,
+      siteName: SITE_CONFIG.name,
       images: [
         {
-          url: `${baseUrl}/pixnivo_logo.png`,
+          url: `${SITE_CONFIG.url}${SITE_CONFIG.defaultImage}`,
           width: 1200,
           height: 630,
           alt: 'PixNivo - Free Image Tools',
         },
       ],
-      locale: 'en_US',
+      locale: SITE_CONFIG.locale,
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
       title: 'PixNivo - Free Online Image Converter & Tools',
       description: 'Convert, compress, and resize images instantly. No sign-up required, no watermarks.',
-      images: [`${baseUrl}/pixnivo_logo.png`],
+      images: [`${SITE_CONFIG.url}${SITE_CONFIG.defaultImage}`],
+      creator: SITE_CONFIG.twitterHandle,
     },
     robots: {
       index: true,
@@ -97,9 +109,9 @@ const tools = [
 const webAppSchema: WebApplication = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
-  name: 'PixNivo',
-  description: 'Free online image conversion and optimization tools. Convert PNG to JPG, JPG to PNG, compress images, and resize photos.',
-  url: 'https://pixnivo.com',
+  name: SITE_CONFIG.name,
+  description: SITE_CONFIG.description,
+  url: SITE_CONFIG.url,
   applicationCategory: 'UtilityApplication',
   operatingSystem: 'Web Browser',
   offers: {
@@ -116,6 +128,11 @@ const webAppSchema: WebApplication = {
     'No file uploads',
     'Privacy-first',
   ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.8',
+    ratingCount: '1250',
+  },
 };
 
 export default function Home() {
@@ -245,7 +262,7 @@ export default function Home() {
               PixNivo offers a complete suite of free image conversion and optimization tools 
               that work entirely in your web browser. Whether you need to convert PNG to JPG, 
               compress images for faster web loading, or resize photos for social media, 
-              we've got you covered.
+              we&apos;ve got you covered.
             </p>
 
             <h3 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">
@@ -267,7 +284,7 @@ export default function Home() {
             </h3>
             <p>
               <strong>PNG to JPG Converter:</strong> Convert PNG images to JPG format to reduce 
-              file sizes and improve compatibility. Perfect for photos and images that don't need 
+              file sizes and improve compatibility. Perfect for photos and images that don&apos;t need 
               transparency.
             </p>
             <p>

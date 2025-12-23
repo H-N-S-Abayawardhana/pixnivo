@@ -1,8 +1,41 @@
 import type { Metadata } from 'next';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Contact Us – PixNivo',
   description: 'Get in touch with PixNivo. We welcome your questions, feedback, and suggestions.',
+  keywords: [
+    'contact pixnivo',
+    'pixnivo support',
+    'image tools support',
+    'contact image converter',
+  ],
+  alternates: {
+    canonical: `${SITE_CONFIG.url}/contact`,
+  },
+  openGraph: {
+    title: 'Contact Us – PixNivo',
+    description: 'Get in touch with PixNivo. We welcome your questions, feedback, and suggestions.',
+    url: `${SITE_CONFIG.url}/contact`,
+    siteName: SITE_CONFIG.name,
+    images: [
+      {
+        url: `${SITE_CONFIG.url}${SITE_CONFIG.defaultImage}`,
+        width: 1200,
+        height: 630,
+        alt: 'Contact PixNivo',
+      },
+    ],
+    locale: SITE_CONFIG.locale,
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact Us – PixNivo',
+    description: 'Get in touch with PixNivo. We welcome your questions, feedback, and suggestions.',
+    images: [`${SITE_CONFIG.url}${SITE_CONFIG.defaultImage}`],
+    creator: SITE_CONFIG.twitterHandle,
+  },
 };
 
 export default function ContactPage() {
@@ -13,8 +46,8 @@ export default function ContactPage() {
         
         <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
           <p>
-            We'd love to hear from you! Whether you have questions, feedback, or suggestions for 
-            improving PixNivo, please don't hesitate to reach out.
+            We&apos;d love to hear from you! Whether you have questions, feedback, or suggestions for 
+            improving PixNivo, please don&apos;t hesitate to reach out.
           </p>
 
           <div className="bg-white border border-gray-200 rounded-lg p-8 mt-8">

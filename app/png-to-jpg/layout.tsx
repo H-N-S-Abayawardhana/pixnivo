@@ -1,13 +1,23 @@
 import type { Metadata } from 'next';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export function generateMetadata(): Metadata {
-  const baseUrl = 'https://pixnivo.com'; // Update with your actual domain
-  const url = `${baseUrl}/png-to-jpg`;
+  const url = `${SITE_CONFIG.url}/png-to-jpg`;
   
   return {
     title: 'Convert PNG to JPG Online Free – No Login Required',
     description: 'Convert PNG to JPG instantly for free. No sign-up, no watermarks. Reduce file sizes and improve compatibility. All processing happens in your browser.',
-    keywords: 'png to jpg, convert png to jpg, png to jpeg converter, free png to jpg, online png converter, png to jpg converter free',
+    keywords: [
+      'png to jpg',
+      'convert png to jpg',
+      'png to jpeg converter',
+      'free png to jpg',
+      'online png converter',
+      'png to jpg converter free',
+      'png to jpg online',
+      'convert png to jpeg',
+      'png converter',
+    ],
     alternates: {
       canonical: url,
     },
@@ -15,23 +25,24 @@ export function generateMetadata(): Metadata {
       title: 'Convert PNG to JPG Online Free – No Login Required | PixNivo',
       description: 'Convert PNG images to JPG format instantly and for free. No sign-up required, no watermarks. All processing happens in your browser.',
       url: url,
-      siteName: 'PixNivo',
+      siteName: SITE_CONFIG.name,
       images: [
         {
-          url: `${baseUrl}/pixnivo_logo.png`,
+          url: `${SITE_CONFIG.url}${SITE_CONFIG.defaultImage}`,
           width: 1200,
           height: 630,
           alt: 'PixNivo PNG to JPG Converter',
         },
       ],
-      locale: 'en_US',
+      locale: SITE_CONFIG.locale,
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
       title: 'Convert PNG to JPG Online Free – No Login Required',
       description: 'Convert PNG images to JPG format instantly and for free. No sign-up required, no watermarks.',
-      images: [`${baseUrl}/pixnivo_logo.png`],
+      images: [`${SITE_CONFIG.url}${SITE_CONFIG.defaultImage}`],
+      creator: SITE_CONFIG.twitterHandle,
     },
     robots: {
       index: true,

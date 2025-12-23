@@ -2,10 +2,10 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import StructuredData from '@/components/StructuredData';
 import { Article } from '@/types/schema';
+import { SITE_CONFIG, ORGANIZATION } from '@/lib/constants';
 
 export function generateMetadata(): Metadata {
-  const baseUrl = 'https://pixnivo.com';
-  const url = `${baseUrl}/blog/how-to-compress-images`;
+  const url = `${SITE_CONFIG.url}/blog/how-to-compress-images`;
   
   return {
     title: 'How to Compress Images Without Losing Quality',
@@ -18,16 +18,16 @@ export function generateMetadata(): Metadata {
       title: 'How to Compress Images Without Losing Quality | PixNivo Blog',
       description: 'Learn how to compress images effectively while maintaining visual quality. Tips and techniques for image optimization.',
       url: url,
-      siteName: 'PixNivo',
+      siteName: SITE_CONFIG.name,
       images: [
         {
-          url: `${baseUrl}/pixnivo_logo.png`,
+          url: `${SITE_CONFIG.url}${SITE_CONFIG.defaultImage}`,
           width: 1200,
           height: 630,
           alt: 'How to Compress Images Guide',
         },
       ],
-      locale: 'en_US',
+      locale: SITE_CONFIG.locale,
       type: 'article',
       publishedTime: '2024-01-10T00:00:00Z',
       modifiedTime: '2024-01-10T00:00:00Z',
@@ -36,7 +36,8 @@ export function generateMetadata(): Metadata {
       card: 'summary_large_image',
       title: 'How to Compress Images Without Losing Quality',
       description: 'Learn how to compress images effectively while maintaining visual quality. Tips and techniques for image optimization.',
-      images: [`${baseUrl}/pixnivo_logo.png`],
+      images: [`${SITE_CONFIG.url}${SITE_CONFIG.defaultImage}`],
+      creator: SITE_CONFIG.twitterHandle,
     },
     robots: {
       index: true,
@@ -58,7 +59,7 @@ const articleSchema: Article = {
   '@type': 'Article',
   headline: 'How to Compress Images Without Losing Quality',
   description: 'Learn how to compress images effectively while maintaining visual quality. Tips and techniques for image optimization.',
-  image: 'https://pixnivo.com/pixnivo_logo.png',
+  image: `${SITE_CONFIG.url}${SITE_CONFIG.defaultImage}`,
   datePublished: '2024-01-10T00:00:00Z',
   dateModified: '2024-01-10T00:00:00Z',
   author: {
@@ -67,10 +68,10 @@ const articleSchema: Article = {
   },
   publisher: {
     '@type': 'Organization',
-    name: 'PixNivo',
+    name: ORGANIZATION.name,
     logo: {
       '@type': 'ImageObject',
-      url: 'https://pixnivo.com/pixnivo_logo.png',
+      url: ORGANIZATION.logo,
     },
   },
 };

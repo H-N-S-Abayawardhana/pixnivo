@@ -183,7 +183,7 @@ This is a private project. For questions or suggestions, please contact the proj
 
 ## 📞 Support
 
-For support, visit the [Contact page](https://pixnivo.com/contact) or check out the [About page](https://pixnivo.com/about) for more information.
+For support, visit the [Contact page](https://pixnivo.vercel.app/contact) or check out the [About page](https://pixnivo.vercel.app/about) for more information.
 
 ---
 

@@ -1,88 +1,90 @@
 import { MetadataRoute } from 'next';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://pixnivo.vercel.app';
+  const baseUrl = SITE_CONFIG.url;
+  const now = new Date();
 
   // Static pages
-  const staticPages = [
+  const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
+      lastModified: now,
+      changeFrequency: 'daily',
       priority: 1.0,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
+      lastModified: now,
+      changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
+      lastModified: now,
+      changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${baseUrl}/privacy-policy`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly' as const,
+      lastModified: now,
+      changeFrequency: 'yearly',
       priority: 0.5,
     },
     {
       url: `${baseUrl}/terms`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly' as const,
+      lastModified: now,
+      changeFrequency: 'yearly',
       priority: 0.5,
     },
   ];
 
-  // Tool pages (high priority)
-  const toolPages = [
+  // Tool pages (high priority - these are the main conversion pages)
+  const toolPages: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/png-to-jpg`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
+      lastModified: now,
+      changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/jpg-to-png`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
+      lastModified: now,
+      changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/image-compressor`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
+      lastModified: now,
+      changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/image-resizer`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
+      lastModified: now,
+      changeFrequency: 'weekly',
       priority: 0.9,
     },
   ];
 
   // Blog pages
-  const blogPages = [
+  const blogPages: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
+      lastModified: now,
+      changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/blog/png-vs-jpg`,
       lastModified: new Date('2024-01-15'),
-      changeFrequency: 'monthly' as const,
+      changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${baseUrl}/blog/how-to-compress-images`,
       lastModified: new Date('2024-01-10'),
-      changeFrequency: 'monthly' as const,
+      changeFrequency: 'monthly',
       priority: 0.7,
     },
   ];
