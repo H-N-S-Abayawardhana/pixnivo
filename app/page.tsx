@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import StructuredData from '@/components/StructuredData';
 import { WebApplication } from '@/types/schema';
+import { LockClosedIcon, BoltIcon, SparklesIcon } from '@heroicons/react/24/outline';
 
 import { SITE_CONFIG } from '@/lib/constants';
 
@@ -141,9 +142,9 @@ export default function Home() {
       <StructuredData data={webAppSchema} />
       <div className="bg-white">
       {/* Hero Section */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-8 pb-12 md:pt-12 md:pb-16">
         <div className="text-center">
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mb-4">
             <Image
               src="/pixnivo_logo.png"
               alt="PixNivo Logo"
@@ -154,19 +155,22 @@ export default function Home() {
             />
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-3">
             Free Image Tools for Everyone
           </h1>
           
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 mb-4 max-w-2xl mx-auto">
             Convert, compress, and resize images instantly. No sign-up required, no watermarks, 
             and your files never leave your device.
           </p>
 
-          <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg max-w-2xl mx-auto mb-12">
-            <p className="text-sm text-blue-800">
-              <strong>🔒 Privacy First:</strong> All image processing happens directly in your browser. 
-              Your files are never uploaded or stored on our servers.
+          <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg max-w-2xl mx-auto mb-6">
+            <p className="text-sm text-blue-800 flex items-start justify-center gap-2">
+              <LockClosedIcon className="h-4 w-4 flex-shrink-0 mt-0.5" aria-hidden="true" />
+              <span className="text-center">
+                <strong>Privacy First:</strong> All image processing happens directly in your browser. 
+                Your files are never uploaded or stored on our servers.
+              </span>
             </p>
           </div>
 
@@ -188,12 +192,12 @@ export default function Home() {
       </section>
 
       {/* Tools Grid */}
-      <section id="tools" className="bg-gray-50 py-16 md:py-24">
+      <section id="tools" className="bg-gray-50 py-12 md:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-3">
             Our Image Tools
           </h2>
-          <p className="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 text-center mb-8 max-w-2xl mx-auto">
             Choose from our collection of free, easy-to-use image conversion and optimization tools.
           </p>
 
@@ -216,15 +220,17 @@ export default function Home() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 md:py-24">
+      <section className="py-12 md:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-8">
             Why Choose PixNivo?
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="text-4xl mb-4">⚡</div>
+              <div className="flex justify-center mb-4">
+                <BoltIcon className="h-12 w-12 text-blue-600" aria-hidden="true" />
+              </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Lightning Fast</h3>
               <p className="text-gray-600">
                 Process images instantly in your browser. No waiting for uploads or server processing.
@@ -232,7 +238,9 @@ export default function Home() {
             </div>
 
             <div className="text-center">
-              <div className="text-4xl mb-4">🔒</div>
+              <div className="flex justify-center mb-4">
+                <LockClosedIcon className="h-12 w-12 text-blue-600" aria-hidden="true" />
+              </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">100% Private</h3>
               <p className="text-gray-600">
                 Your files never leave your device. All processing happens locally in your browser.
@@ -240,7 +248,9 @@ export default function Home() {
             </div>
 
             <div className="text-center">
-              <div className="text-4xl mb-4">✨</div>
+              <div className="flex justify-center mb-4">
+                <SparklesIcon className="h-12 w-12 text-blue-600" aria-hidden="true" />
+              </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Completely Free</h3>
               <p className="text-gray-600">
                 No sign-up, no watermarks, no hidden fees. Use all our tools as much as you want.
@@ -251,7 +261,7 @@ export default function Home() {
       </section>
 
       {/* SEO Content */}
-      <section className="bg-gray-50 py-16 md:py-24">
+      <section className="bg-gray-50 py-12 md:py-16">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">
             Free Online Image Conversion Tools

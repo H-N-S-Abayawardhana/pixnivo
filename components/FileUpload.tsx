@@ -1,6 +1,7 @@
 'use client';
 
-import { useRef, useState, DragEvent, ChangeEvent } from 'react';
+import { useRef, useState, DragEvent, ChangeEvent, KeyboardEvent } from 'react';
+import { PhotoIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 
 interface FileUploadProps {
   onFileSelect: (file: File) => void;
@@ -68,15 +69,29 @@ export default function FileUpload({
     if (file) {
       handleFile(file);
     }
+    // Reset input so the same file can be selected again
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
   };
 
   const handleClick = () => {
     fileInputRef.current?.click();
   };
 
+  const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleClick();
+    }
+  };
+
   return (
     <div className="w-full">
       <div
+        role="button"
+        tabIndex={0}
+        aria-label="Upload image file"
         className={`
           relative
           border-2 border-dashed
@@ -85,6 +100,10 @@ export default function FileUpload({
           text-center
           cursor-pointer
           transition-all
+          focus:outline-none
+          focus:ring-2
+          focus:ring-blue-500
+          focus:ring-offset-2
           ${isDragging 
             ? 'border-blue-500 bg-blue-50' 
             : 'border-gray-300 hover:border-gray-400 hover:bg-gray-50'
@@ -94,6 +113,7 @@ export default function FileUpload({
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
         onClick={handleClick}
+        onKeyDown={handleKeyDown}
       >
         <input
           ref={fileInputRef}
@@ -101,22 +121,11 @@ export default function FileUpload({
           accept={accept}
           onChange={handleFileInput}
           className="hidden"
+          aria-label="File input"
         />
         
         <div className="flex flex-col items-center gap-4">
-          <svg
-            className="w-16 h-16 text-gray-400"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-            />
-          </svg>
+          <PhotoIcon className="w-16 h-16 text-gray-400" aria-hidden="true" />
           
           <div>
             <p className="text-lg font-medium text-gray-900 mb-1">
@@ -130,7 +139,12 @@ export default function FileUpload({
       </div>
       
       {error && (
-        <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+        <div 
+          className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3"
+          role="alert"
+          aria-live="polite"
+        >
+          <ExclamationTriangleIcon className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
           <p className="text-sm text-red-800">{error}</p>
         </div>
       )}
