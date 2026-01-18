@@ -10,6 +10,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import StructuredData from '@/components/StructuredData';
 import { resizeImage, validateImageFile } from '@/lib/imageUtils';
 import { FAQPage } from '@/types/schema';
+import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 
 export default function ImageResizerPage() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -223,7 +224,12 @@ export default function ImageResizerPage() {
 
       {/* Error Message */}
       {error && (
-        <div className="mb-8 p-4 bg-red-50 border border-red-200 rounded-lg">
+        <div 
+          className="mb-8 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3"
+          role="alert"
+          aria-live="polite"
+        >
+          <ExclamationTriangleIcon className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
           <p className="text-sm text-red-800">{error}</p>
         </div>
       )}
